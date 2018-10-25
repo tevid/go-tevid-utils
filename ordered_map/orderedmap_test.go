@@ -1,4 +1,4 @@
-package orderedmap
+package ordered_map
 
 import (
 	"testing"
