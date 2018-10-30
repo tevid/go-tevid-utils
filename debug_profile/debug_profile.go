@@ -5,7 +5,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/tevid/go-tevid-utils/iputil"
+	iputil "github.com/tevid/go-tevid-utils/ip_util"
 	"io"
 	"io/ioutil"
 	"log"
