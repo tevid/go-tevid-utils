@@ -55,20 +55,21 @@ func TestBytesPool_Release_1(t *testing.T) {
 }
 
 func BenchmarkBytesPool_AllocAndRelease(b *testing.B) {
-	bp := NewBytesPool(128, 1024, 64*1024)
+	bp := NewBytesPool(10240, 20480, 128*10240)
 	b.ResetTimer()
 	b.RunParallel(func(pb *testing.PB) {
 		for pb.Next() {
-			bp.Release(bp.Alloc(1024))
+			bp.Release(bp.Alloc(10240))
 		}
 	})
 }
 
 func Benchmark_AllocAndRelease(b *testing.B) {
+	b.ResetTimer()
 	b.RunParallel(func(pb *testing.PB) {
 		var x []byte
 		for pb.Next() {
-			x = make([]byte, 1024)
+			x = make([]byte, 10240)
 		}
 		x = x[:0]
 	})
